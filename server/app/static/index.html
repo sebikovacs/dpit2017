@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="../css/normalise.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/chat.js"> </script>
+
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages li { padding: 5px 10px; }
+      #messages li:nth-child(odd) { background: #eee; }
+    </style>
+</head>
+<body>
+    <div class="content clearfix">
+        <div class="sidebar">
+            <div class="sidebar-title">
+                YOUR PROFILE
+            </div>
+
+            <div class="sidebar-content">
+                <ul class="sidebar-navigation">
+                    <li>
+                        <div class="navigation-header">
+                            <span class="navigation-header-text">
+                                Profile settings
+                            </span>
+                            <span class="navigation-arrow-down"></span>
+                        </div>
+                        <ul>
+                            <li><a href="">Personal information</a></li>
+                            <li><a href="">Account Settings</a></li>
+                            <li><a href="">Change Password</a></li>
+                            <li><a href="">Hobbies and Interests</a></li>
+                            <li><a href="">Education and Employement</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="navigation-header">
+                            <span class="navigation-header-text">
+                                Notifications
+                            </span>
+                            <span class="label label-blue">8</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="navigation-header">
+                            <span class="navigation-header-text">
+                                Chat Messages
+                            </span>
+                            <span class="label label-red">4</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="navigation-header">
+                            <span class="navigation-header-text">
+                                Friend requests
+                            </span>
+                            <span class="label label-red">4</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="main-content">
+            <div class="main-content-header">
+                <h3>Chat / Message</h3>
+            </div>
+            <div class="messenger-section clearfix">
+                <div class="chat-contacts-list">
+                    <div class="chat-contact-item clearfix">
+                        <div class="chat-item-profile-image">
+                            <img src="../images/diana.png" alt="">
+                        </div>
+                        <div class="chat-item-content">
+                            <h4>Diana Jameson</h4>
+                            <p>Hi James! It’s Diana, I just wanted to let you know that we have to reschedule...</p>
+                            <span class="chat-item-time">4 hours ago</span>
+                        </div>
+                        <div class="chat-item-logo">
+
+                        </div>
+                    </div>
+                    <div class="chat-contact-item clearfix">
+                        <div class="chat-item-profile-image">
+                            <img src="../images/diana.png" alt="">
+                        </div>
+                        <div class="chat-item-content">
+                            <h4>Diana Jameson</h4>
+                            <p>Hi James! It’s Diana, I just wanted to let you know that we have to reschedule...</p>
+                            <span class="chat-item-time">4 hours ago</span>
+                        </div>
+                        <div class="chat-item-logo">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-content">
+                    <div class="chat-messages">
+                        <div class="chat-message clearfix">
+                            <div class="chat-message-profile-image">
+                                <img src="../images/parker.png" alt="">
+                            </div>
+                            <div class="chat-message-content">
+                                <div class="chat-message-header clearfix">
+                                    <h4>Elaine Dreyfuss</h4>
+                                    <span class="chat-message-time">Yesterday at 8.10am</span>
+                                </div>
+                                <p class="message">
+                                    Hi James, How are your doing? Please remember that next week we are going to Gotham Bar to celebrate Marina’s Birthday.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="chat-message clearfix">
+                            <div class="chat-message-profile-image">
+                                <img src="../images/parker.png" alt="">
+                            </div>
+                            <div class="chat-message-content">
+                                <div class="chat-message-header clearfix">
+                                    <h4>Elaine Dreyfuss</h4>
+                                    <span class="chat-message-time">Yesterday at 8.10am</span>
+                                </div>
+                                <p class="message">
+                                    Hi James, How are your doing? Please remember that next week we are going to Gotham Bar to celebrate Marina’s Birthday.
+                                </p>
+                            </div>
+                        </div><!-- chat-message -->
+                    </div>
+                    <div class="chat-form">
+                        <ul id="messages"></ul>
+                        <form action="">
+                          <input id="m" autocomplete="off" /><button id="send">Send</button>
+                        </form>
+
+                        <input type="text" name="" id="">
+                    </div>
+                </div><!-- chat-content -->
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+      $(function () {
+        var socket = io();
+        $('form').submit(function(){
+          socket.emit('chat message', $('#m').val());
+          $('#m').val('');
+          return false;
+        });
+        socket.on('chat message', function(msg){
+          $('#messages').append($('<li>').text(msg));
+          window.scrollTo(0, document.body.scrollHeight);
+        });
+      });
+    </script>
+</body>
+</html>

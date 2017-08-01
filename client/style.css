@@ -1,0 +1,144 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FD623E;
+    color: white;
+    font-family: 'HelveticaNeue-Thin', sans-serif;
+    text-align: justify;
+}
+
+.container {
+    position: relative;
+}
+
+.row {
+    margin: 0 auto;
+    width: 70%;
+    float: left;
+    padding: 1rem;
+}
+
+.empty {
+    width: 15%;
+    height: 100px;
+    float: left;
+}
+
+img {
+    width: 35%;
+}
+
+.logo {
+    float: left;
+}
+
+.menu {
+    float: right;
+}
+
+.menu-icon {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: white;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+    transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+    opacity: 0;
+}
+
+/* Rotate last bar */
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+    transform: rotate(45deg) translate(-8px, -8px) ;
+}
+
+.info p {
+    font-weight: 100;
+    font-size: 1.1rem;
+    line-height: 2rem;
+    padding: 2rem 1.5rem 2rem 0;
+}
+
+.info h1 {
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+    padding: 3rem 1.5rem 2rem 0;
+}
+
+.header, .content {
+    margin: 0 auto;
+    float: left;
+}
+
+.info, .tabs {
+    float: left;
+    width: 50%;
+}
+
+.tablinks {
+    float: left;
+    width: 50%;
+}
+
+#registration, #login {
+    float: left;
+    width: 50%;
+    background: white;
+}
+
+label, .confirm {
+    font-size: 1rem;
+    color: grey;
+    float: left;
+    margin-bottom: 0;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 0.3rem 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+input[type=checkbox] {
+    margin-top: 1.3rem;
+    float: left;
+}
+
+button {
+    color: white;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.1rem;
+    border: 1px solid white;
+}
+
+.finish, .signinbtn {
+     background-color: #7C5AC2;
+     border-radius: 0.3rem;
+ }
+
+.body-form {
+    padding: 0.5rem;
+}

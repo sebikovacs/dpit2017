@@ -1,0 +1,255 @@
+:root {
+  --border-color: #e6ecf5;
+  --heading-color: #515365;
+}
+
+body {
+    background: #edf2f6;
+    font-family: Roboto, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.812rem;
+    font-weight: normal;
+    line-height: 1.5;
+    color: #888da8;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* General
+*/
+a {
+    color: #898ea9;
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+/* Components
+*/
+.label {
+    font-weight: bold;
+    font-size: 10px;
+    color: #FFF;
+
+    border-radius: 50%;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+}
+
+.label.label-red {
+    background: #ff5e3a;
+}
+
+.label.label-blue {
+    background: #38a9ff;
+}
+
+/* Layout
+*/
+.content {
+    width: 1200px;
+    margin: 120px auto;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.sidebar,
+.main-content {
+    border: 1px solid #e6ecf5;
+    background: #FFF;
+    border-radius: 4px;
+}
+
+/* Main content section
+*/
+.main-content {
+    float: right;
+    width: 74%;
+}
+
+.main-content-header {
+    border-bottom: 1px solid var( --border-color );
+    padding: 10px 0 10px 20px;
+}
+
+.main-content-header h3 {
+    margin: 0;
+    font-size: 14px;
+    color: #515365;
+}
+
+/* Messenger section
+*/
+.messenger-section {
+    display: flex;
+}
+
+/* Messenger contact list */
+.chat-contacts-list {
+    width: 35%;
+}
+
+.chat-contact-item {
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-bottom: 1px solid var( --border-color );
+    border-right: 1px solid var( --border-color );
+}
+
+.chat-contact-item:last-child {
+    border-bottom: 0;
+}
+
+.chat-item-profile-image {
+    float: left;
+    width: 20%;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.chat-item-content {
+    float: left;
+    width: 70%;
+    font-size: 12px;
+}
+
+.chat-item-content h4 {
+    color: var( --heading-color );
+}
+
+.chat-item-content span.chat-item-time {
+    font-size: 11px;
+}
+
+.chat-item-logo {
+    float: left;
+    width: 10%;
+    height: 20px;
+}
+
+/* Messenger chat box */
+.chat-content {
+    width: 65%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-messages {
+    padding-top: 20px;
+    flex-grow: 1;
+}
+
+.chat-message {
+    margin-bottom: 20px;
+}
+
+.chat-message-profile-image {
+    width: 15%;
+    text-align: center;
+    float: left;
+}
+
+.chat-message-content {
+    width: 84%;
+    float: right;
+    padding-right: 10px;
+}
+
+.chat-message-content h4 {
+    color: var( --heading-color );
+    float: left;
+}
+
+.chat-message-content .chat-message-time {
+    float: right;
+    font-size: 10px;
+}
+
+/* Chat form
+*/
+.chat-form {
+    border-top: 1px solid var( --border-color );
+}
+
+.chat-form input {
+    width: 100%;
+    border: none;
+    padding: 10px;
+}
+
+.chat-form input:focus {
+    outline: none;
+}
+
+/* Sidebar section
+*/
+.sidebar {
+    float: left;
+    width: 24%;
+}
+
+.sidebar .sidebar-title {
+    font-size: 9px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--main-color);
+    padding: 8px 20px 6px;
+}
+
+/* Sidebar Navigation
+*/
+.sidebar-navigation,
+.sidebar-navigation ul  {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-navigation > li {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-navigation > li:last-child {
+    border-bottom: 0;
+}
+
+.sidebar-navigation .navigation-header {
+    color: #515365;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 16px 10px;
+}
+
+.navigation-header .label {
+    float: right;
+}
+
+.sidebar-navigation ul {
+    border-top: 1px solid var(--border-color);
+}
+
+.sidebar-navigation ul li:last-child {
+    border-bottom: 0;
+}
+
+.sidebar-navigation ul a {
+    font-size: 11px;
+    padding: 7px 16px 6px;
+    display: block;
+}
